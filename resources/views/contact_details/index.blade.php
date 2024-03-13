@@ -3,10 +3,12 @@
 @section('title', 'Contact Details')
 
 @section('content')
+    {{ Breadcrumbs::render('contact_details', $contact) }}
     <h1>Contact Details page</h1>
     <div class="form-group mb-3">
         <label for="contact_name">Contact name</label>
-        <input disabled class="form-control px-3 py-1 rounded border border-sm " placeholder="Name" type="text" name="contact_name"
+        <input disabled class="form-control px-3 py-1 rounded border border-sm " placeholder="Name" type="text"
+               name="contact_name"
                value="{{$contact->name}}">
     </div>
 
@@ -29,8 +31,10 @@
                 <td>{{$contact_detail->value}}</td>
                 <td>{{$contact_detail->category->name}}</td>
                 <td><a class="btn px-3 py-1 btn-success"
-                       href="{{route('contact_details.edit', ['contact'=>$contact, 'contact_details'=> $contact_detail])}}">Edit</a>
-                    <form class="d-inline" action="{{route('contact_details.delete',['contact_details'=> $contact_detail])}}" method="POST">
+                       href="{{route('contact_details.edit', ['contact_details'=> $contact_detail])}}">Edit</a>
+                    <form class="d-inline"
+                          action="{{route('contact_details.delete',['contact_details'=> $contact_detail])}}"
+                          method="POST">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn px-3 py-1 btn-danger">Delete</button>

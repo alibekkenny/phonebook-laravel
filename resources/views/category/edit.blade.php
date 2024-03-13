@@ -10,7 +10,7 @@
                 @method('PUT')
                 @csrf
                 @error('name')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="alert alert-danger mt-2 mb-0">{{ $message }}</div>
                 @enderror
                 <div class="form-group">
                     <label>Category name</label>
@@ -18,7 +18,8 @@
                            value="{{$category->name}}">
                 </div>
                 <button type="submit"
-                        class="btn btn-success btn-block w-100 mt-3">Save</button>
+                        class="btn btn-success btn-block w-100 mt-3">Save
+                </button>
             </form>
             <a class="btn btn-danger px-4 mt-2 w-100"
                href="{{route('category.index')}}">Cancel</a>

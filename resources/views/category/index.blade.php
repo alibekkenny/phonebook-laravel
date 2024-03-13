@@ -3,6 +3,7 @@
 @section('title', 'Categories page')
 
 @section('content')
+    
     <h1>Categories</h1>
     <a class="btn btn-primary float-end"
        href="{{route('category.create')}}">Add new category</a>

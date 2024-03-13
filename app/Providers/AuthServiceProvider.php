@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+use App\Policies\ContactDetailsPolicy;
+use App\Policies\ContactPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        //
+//        Contact::class => ContactPolicy::class,
+//        ContactDetails::class => ContactDetailsPolicy::class,
     ];
 
     /**
@@ -21,6 +25,14 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::define('create-contact', [ContactPolicy::class, 'create']);
+        Gate::define('view-contact', [ContactPolicy::class, 'view']);
+        Gate::define('update-contact', [ContactPolicy::class, 'update']);
+        Gate::define('delete-contact', [ContactPolicy::class, 'delete']);
+
+        Gate::define('create-contact_details', [ContactDetailsPolicy::class, 'create']);
+        Gate::define('view-contact_details', [ContactDetailsPolicy::class, 'view']);
+        Gate::define('update-contact_details', [ContactDetailsPolicy::class, 'update']);
+        Gate::define('delete-contact_details', [ContactDetailsPolicy::class, 'delete']);
     }
 }
