@@ -48,7 +48,7 @@ class ContactDetailsController extends Controller
         $data = $request->validate([
             'category_id' => 'required|exists:categories,id',
             'contact_id' => 'required|exists:contacts,id',
-            'value' => 'required|max:255|string',
+            'value' => 'required|min:3|max:255|string',
         ]);
         ContactDetails::create($data);
 
@@ -75,7 +75,7 @@ class ContactDetailsController extends Controller
         $data = $request->validate([
             'category_id' => 'required|exists:categories,id',
 //            'contact_id' => 'required|exists:contacts,id',
-            'value' => 'required|max:255|string',
+            'value' => 'required|min:3|max:255|string',
         ]);
         $contactDetails->update($data);
         return redirect()->route('contact_details.index', [

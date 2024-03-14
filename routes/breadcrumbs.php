@@ -22,5 +22,22 @@ Breadcrumbs::for('contact', function (BreadcrumbTrail $trail) {
 // Home > Contact > [Contact]
 Breadcrumbs::for('contact_details', function (BreadcrumbTrail $trail, $contact) {
     $trail->parent('contact');
-    $trail->push($contact->name, route('contact_details.index', $contact));
+    $trail->push('Contact Details', route('contact_details.index', $contact));
+});
+
+// Admin users
+Breadcrumbs::for('admin_user', function (BreadcrumbTrail $trail) {
+    $trail->push('Users', route('admin.user.index'));
+});
+
+// Admin users > Contact
+Breadcrumbs::for('admin_contact', function (BreadcrumbTrail $trail, $user) {
+    $trail->parent('admin_user');
+    $trail->push('Contact', route('admin.user.contact', ['user' => $user]));
+});
+
+// Admin users > Contact > Contact Details
+Breadcrumbs::for('admin_contact_details', function (BreadcrumbTrail $trail, $contact) {
+    $trail->parent('admin_contact', $contact->user);
+    $trail->push('Contact Details', route('admin.contact.contact_details', ['contact' => $contact]));
 });
