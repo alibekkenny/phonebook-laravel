@@ -25,14 +25,14 @@
                    class="list-group-item list-group-item-action py-2 ripple">
                     <i class="fas fa-chart-area fa-fw me-3"></i><span>Users</span>
                 </a>
-                <a href="{{route('admin.contact.index')}}"
-                   class="list-group-item list-group-item-action py-2 ripple">
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Contacts</span>
-                </a>
-                <a href="{{route('admin.category.index')}}"
-                   class="list-group-item list-group-item-action py-2 ripple">
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Categories</span>
-                </a>
+                {{--                <a href="{{route('admin.contact.index')}}"--}}
+                {{--                   class="list-group-item list-group-item-action py-2 ripple">--}}
+                {{--                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Contacts</span>--}}
+                {{--                </a>--}}
+                {{--                <a href="{{route('admin.category.index')}}"--}}
+                {{--                   class="list-group-item list-group-item-action py-2 ripple">--}}
+                {{--                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Categories</span>--}}
+                {{--                </a>--}}
                 <a href="{{route('admin.logout')}}"
                    class="list-group-item list-group-item-action py-2 ripple">
                     <i class="fas fa-chart-area fa-fw me-3"></i><span><svg xmlns="http://www.w3.org/2000/svg"

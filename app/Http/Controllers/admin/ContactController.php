@@ -10,7 +10,6 @@ use Illuminate\View\View;
 
 class ContactController extends Controller
 {
-    //
     public function contact_details(Contact $contact): View
     {
         return view('admin.contact.contact_details', [
